@@ -5,14 +5,7 @@ maintained by Descasio. This repository is the evidence referenced under
 **REL-001 — Automate Deployment and Leverage Infrastructure-as-Code Tools**
 in the AWS DevOps Competency assessment.
 
-## What this repo proves for REL-001
 
-| Control requirement | Where it's satisfied |
-|---|---|
-| Infrastructure changes automated via a scripting/IaC tool | Entire environment defined in `.tf` files, applied via Terraform |
-| No manual AWS Console changes to production | `.github/workflows/terraform.yml` — `terraform apply` runs **only** inside GitHub Actions, gated on `main`, after `validate` + `plan` succeed |
-| Change history / version control | Every infrastructure change is a reviewed pull request against this repo |
-| Prevents conflicting concurrent changes | Remote state in S3 + DynamoDB locking (`versions.tf`) |
 
 ## Architecture
 
