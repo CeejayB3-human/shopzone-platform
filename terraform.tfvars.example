@@ -1,0 +1,22 @@
+# Copy this file to terraform.tfvars and fill in real values.
+# terraform.tfvars itself should be in .gitignore — never commit real
+# account-specific values or secrets to the repository.
+
+aws_region   = "us-east-1"
+environment  = "production"
+project_name = "shopzone"
+
+# Supplied by the CI/CD pipeline at deploy time (commit-SHA tagged image),
+# not hand-edited for routine deploys.
+container_image = "123456789012.dkr.ecr.us-east-1.amazonaws.com/shopzone-app:latest"
+
+acm_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/REPLACE-ME"
+
+desired_count = 2
+min_capacity  = 2
+max_capacity  = 6 # absorbs ~2x baseline demand during promotions
+
+db_instance_class        = "db.t4g.medium"
+db_allocated_storage     = 50
+db_max_allocated_storage = 500
+db_backup_retention_days = 14
